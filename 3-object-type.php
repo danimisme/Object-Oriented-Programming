@@ -8,15 +8,25 @@ class Produk {
         $this->harga = $harga;
     }
 
-    public function getLabels(){
+    public function getLabel(){
         return "$this->penulis, $this->penerbit";
     }
 }
+
+
+
+class CetakInfoProduk {
+    public function cetak (Produk $produk) {
+        $str = " {$produk->judul} | {$produk->getLabel()} (Rp.{$produk->harga})";
+        return $str;
+    }
+}
+
 
 $produk1 = new Produk("Naruto", "Masashi Kishimoto", "Shonen Jump", 300000);
 $produk2 = new Produk("Uncharted", "Neil Druckmann","Sonny Computer", 250000);
 var_dump($produk1);
 var_dump($produk2);
 
-
-?>
+$infoProduk1 = new CetakInfoProduk();
+echo $infoProduk1->cetak($produk1);
