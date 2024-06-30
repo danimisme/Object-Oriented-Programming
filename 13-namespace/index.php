@@ -12,4 +12,4 @@ require 'App/init.php';
 
 // echo "<hr>";
 
-new User();
+new App\Service\User();
